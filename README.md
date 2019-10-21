@@ -1,0 +1,2 @@
+# svyAnalyticsClient
+Servoy analytics module
