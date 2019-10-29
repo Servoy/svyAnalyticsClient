@@ -53,7 +53,7 @@ var GEO_COOKIE = 'com.servoy.extensions.geo';
  *
  * @properties={typeid:35,uuid:"3FA035C3-D9BC-4240-8F34-B7F628518861"}
  */
-var baseURL = 'https://svycloud-dev.unifiedui.servoy-cloud.eu';
+var baseURL = 'https://admin-dev.servoy-cloud.eu';
 
 /**
  * @private
