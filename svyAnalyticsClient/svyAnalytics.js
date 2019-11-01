@@ -85,7 +85,7 @@ var API_KEY_PROPERTY_NAME = 'com.servoy.cloud.analytics.apiKey';
  *
  * @properties={typeid:35,uuid:"790A7BEB-0FDC-4153-B58C-A1733E6FA496"}
  */
-var SVY_CLOUD_NAMESPACE = 'com.servoy.cloud.namespace';
+var SVY_CLOUD_NAMESPACE = '';
 
 /**
  * @private
@@ -149,6 +149,7 @@ function openSession(id, tenantName) {
 		application.output('Failed to open anayltics session', LOGGINGLEVEL.ERROR);
 		return false;
 	}
+	SVY_CLOUD_NAMESPACE = response.namespace
 	sessionID = response.id;
 	application.output('Opened anayltics session [id=' + sessionID + ']', LOGGINGLEVEL.DEBUG);
 	return true;
@@ -198,7 +199,7 @@ function sendEvent(event) {
 
 	var url = baseURL + '/event';
 	var post = plugins.http.createNewHttpClient().createPostRequest(url);
-	event.namespace = application.getUserProperty(SVY_CLOUD_NAMESPACE);
+	event.namespace = SVY_CLOUD_NAMESPACE;
 	post.setBodyContent(JSON.stringify(event));
 	send(post, true);
 }
